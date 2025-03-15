@@ -1,7 +1,4 @@
-package singleton.sample;
-
-import singleton.eager.SingletonEager;
-import singleton.lazy.SingletonLazy;
+package singleton;
 
 public class SingletonSample {
 

@@ -1,4 +1,4 @@
-package singleton.lazy;
+package singleton;
 
 // Lazy initialization
 public class SingletonLazy {
