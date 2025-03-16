@@ -1,7 +1,5 @@
 package adapter;
 
-import adapter.adaptee.PayPalAdapter;
-import adapter.adaptee.StripeAdapter;
 import adapter.payment.PayPalPayment;
 import adapter.payment.Payment;
 import adapter.payment.StripePayment;

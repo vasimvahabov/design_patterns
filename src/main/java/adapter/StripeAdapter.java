@@ -1,4 +1,4 @@
-package adapter.adaptee;
+package adapter;
 
 import adapter.payment.Payment;
 import adapter.payment.StripePayment;

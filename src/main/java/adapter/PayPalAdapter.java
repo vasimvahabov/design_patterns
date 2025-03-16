@@ -1,4 +1,4 @@
-package adapter.adaptee;
+package adapter;
 
 import adapter.payment.PayPalPayment;
 import adapter.payment.Payment;
