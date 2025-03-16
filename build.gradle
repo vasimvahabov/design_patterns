@@ -9,17 +9,39 @@ repositories {
     mavenCentral()
 }
 
-//sourceSets {
-//    main {
-//        java {
-//            srcDirs = ['src']
-//        }
-//    }
-//}
-
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
+
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.36'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+//    compileOnly 'org.slf4j:slf4j-api:2.0.16'
+//    annotationProcessor 'org.slf4j:slf4j-api:2.0.16'
+//
+//    testCompileOnly 'org.slf4j:slf4j-api:2.0.16'
+//    testAnnotationProcessor 'org.slf4j:slf4j-api:2.0.16'
+
+    implementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+    implementation 'org.apache.logging.log4j:log4j-api:2.23.1'
+    implementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+
+
+    annotationProcessor 'org.apache.logging.log4j:log4j-core:2.23.1'
+    annotationProcessor 'org.apache.logging.log4j:log4j-api:2.23.1'
+    annotationProcessor 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+
+    testImplementation 'org.apache.logging.log4j:log4j-core:2.23.1'
+    testImplementation 'org.apache.logging.log4j:log4j-api:2.23.1'
+    testImplementation 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+
+    testAnnotationProcessor 'org.apache.logging.log4j:log4j-core:2.23.1'
+    testAnnotationProcessor 'org.apache.logging.log4j:log4j-api:2.23.1'
+    testAnnotationProcessor 'org.apache.logging.log4j:log4j-slf4j2-impl:2.23.1'
+
 }
 
 test {
