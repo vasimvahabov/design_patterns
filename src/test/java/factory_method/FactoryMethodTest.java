@@ -3,27 +3,24 @@ package factory_method;
 import factory_method.factory.FacebookNotificationFactory;
 import factory_method.factory.NotificationFactory;
 import factory_method.factory.SMSNotificationFactory;
-
+import org.junit.jupiter.api.Test;
 import java.util.Scanner;
 
-public class FactoryMethodSample {
+class FactoryMethodTest {
 
-    private static NotificationFactory notificationFactory = null;
-
-    public static void main(String[] args) {
-
+    @Test
+    void test() {
         var scanner = new Scanner(System.in);
-        var input = scanner.next();
+        var input = scanner.next().toLowerCase();
 
-        switch (input) {
-            case "sms" -> notificationFactory = new SMSNotificationFactory();
-            case "facebook" -> notificationFactory = new FacebookNotificationFactory();
+        NotificationFactory notificationFactory = switch (input) {
+            case "sms" -> new SMSNotificationFactory();
+            case "facebook" -> new FacebookNotificationFactory();
             default -> throw new IllegalArgumentException("Invalid input");
-        }
+        };
 
         var notification = notificationFactory.createNotification();
         notification.notifyUser();
-
     }
 
 }
