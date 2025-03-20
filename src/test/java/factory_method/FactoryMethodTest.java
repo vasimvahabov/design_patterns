@@ -1,26 +1,29 @@
 package factory_method;
 
-import factory_method.factory.FacebookNotificationFactory;
-import factory_method.factory.NotificationFactory;
-import factory_method.factory.SMSNotificationFactory;
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
-import java.util.Scanner;
+import static org.junit.jupiter.api.Assertions.*;
 
+@Log4j2
 class FactoryMethodTest {
 
     @Test
     void test() {
-        var scanner = new Scanner(System.in);
-        var input = scanner.next().toLowerCase();
+        BaseNotificationFactory baseNotificationFactory = NotificationFactory.notificationFactory();
 
-        NotificationFactory notificationFactory = switch (input) {
-            case "sms" -> new SMSNotificationFactory();
-            case "facebook" -> new FacebookNotificationFactory();
-            default -> throw new IllegalArgumentException("Invalid input");
-        };
+        var facebookNotificationService = baseNotificationFactory.notificationService(NotificationType.FACEBOOK);
+        facebookNotificationService.sendNotification("john@example.com", "Your order is confirmed!");
 
-        var notification = notificationFactory.createNotification();
-        notification.notifyUser();
+        var emailNotificationService = baseNotificationFactory.notificationService(NotificationType.EMAIL);
+        emailNotificationService.sendNotification("duke@example.com", "Your order is confirmed!");
+
+        var pushNotificationService = baseNotificationFactory.notificationService(NotificationType.PUSH);
+        pushNotificationService.sendNotification("mike@example.com", "Your order is confirmed!");
+
+        var smsNotificationService = baseNotificationFactory.notificationService(NotificationType.SMS);
+        smsNotificationService.sendNotification("mike@example.com", "Your order is confirmed!");
+
+        assertThrows(IllegalArgumentException.class, () -> baseNotificationFactory.notificationService(NotificationType.NONE));
     }
 
 }

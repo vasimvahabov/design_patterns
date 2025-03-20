@@ -1,0 +1,17 @@
+package factory_method;
+
+import lombok.extern.log4j.Log4j2;
+
+/**
+ * Concrete Product : SMSNotificationService
+ * */
+
+@Log4j2
+public class SMSNotificationService implements NotificationService {
+
+    @Override
+    public void sendNotification(String recipient, String message) {
+        log.info("Sending SMS Notification to {} : {}", recipient, message);
+    }
+
+}
