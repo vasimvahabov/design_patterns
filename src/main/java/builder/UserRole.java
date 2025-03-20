@@ -1,4 +1,4 @@
-package builder.user;
+package builder;
 
 public enum UserRole {
 

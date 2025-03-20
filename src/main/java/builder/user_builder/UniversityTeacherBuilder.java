@@ -1,18 +1,25 @@
-package builder.user.user_builder;
+package builder.user_builder;
 
-import builder.user.UniversityTeacher;
-import builder.user.User;
-import builder.user.UserRole;
+import builder.UniversityTeacher;
+import builder.User;
+import builder.UserRole;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UniversityTeacherBuilder extends Builder {
 
-    private static final UniversityTeacherBuilder BUILDER = new UniversityTeacherBuilder();
+    static UniversityTeacherBuilder BUILDER = new UniversityTeacherBuilder();
 
-    private String universityName;
+    @NonFinal
+    String universityName;
 
-    private String universityAddress;
+    @NonFinal
+    String universityAddress;
 
-    private String lecture;
+    @NonFinal
+    String lecture;
 
     public UniversityTeacherBuilder setEmail(String email) {
         this.email = email;

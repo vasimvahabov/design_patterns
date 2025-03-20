@@ -1,15 +1,21 @@
-package builder.user.user_builder;
+package builder.user_builder;
 
-import builder.user.UniversityStudent;
-import builder.user.User;
-import builder.user.UserRole;
+import builder.UniversityStudent;
+import builder.User;
+import builder.UserRole;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class UniversityStudentBuilder extends Builder {
 
-    private static final UniversityStudentBuilder BUILDER = new UniversityStudentBuilder();
+    static UniversityStudentBuilder BUILDER = new UniversityStudentBuilder();
 
+    @NonFinal
     String universityName;
 
+    @NonFinal
     String universityAddress;
 
     public static UniversityStudentBuilder builder() {

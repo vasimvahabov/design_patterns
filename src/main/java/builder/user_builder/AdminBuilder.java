@@ -1,15 +1,22 @@
-package builder.user.user_builder;
+package builder.user_builder;
 
-import builder.user.Admin;
-import builder.user.User;
-import builder.user.UserRole;
+import builder.Admin;
+import builder.User;
+import builder.UserRole;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
+import lombok.experimental.NonFinal;
 
+@FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class AdminBuilder extends Builder {
 
-    private String organizationName;
-    private String organizationAddress;
+    @NonFinal
+    String organizationName;
 
-    private static final AdminBuilder BUILDER = new AdminBuilder();
+    @NonFinal
+    String organizationAddress;
+
+    static AdminBuilder BUILDER = new AdminBuilder();
 
     public static AdminBuilder builder() {
         return BUILDER;

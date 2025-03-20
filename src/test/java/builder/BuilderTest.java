@@ -1,14 +1,16 @@
 package builder;
 
-import builder.user.UserRole;
-import builder.user.user_builder.AdminBuilder;
-import builder.user.user_builder.UniversityStudentBuilder;
-import builder.user.user_builder.UniversityTeacherBuilder;
+import builder.user_builder.AdminBuilder;
+import builder.user_builder.UniversityStudentBuilder;
+import builder.user_builder.UniversityTeacherBuilder;
+import lombok.extern.log4j.Log4j2;
+import org.junit.jupiter.api.Test;
 
-public class BuilderSample {
+@Log4j2
+class BuilderTest {
 
-    public static void main(String[] args) {
-
+    @Test
+    void test() {
         var admin = AdminBuilder
                 .builder()
                 .setEmail("adminEmail")
@@ -18,7 +20,7 @@ public class BuilderSample {
                 .setOrganizationName("organizationName")
                 .setOrganizationAddress("organizationAddress")
                 .build();
-        System.out.println(admin+"\n");
+        log.info("{} \n", admin);
 
         var universityStudent = UniversityStudentBuilder
                 .builder()
@@ -29,7 +31,7 @@ public class BuilderSample {
                 .setUniversityName("universityName")
                 .setUniversityAddress("universityAddress")
                 .build();
-        System.out.println(universityStudent+"\n");
+        log.info("{} \n", universityStudent);
 
 
         var universityTeacher = UniversityTeacherBuilder
@@ -39,9 +41,11 @@ public class BuilderSample {
                 .setPassword("universityTeacherPassword")
                 .setRole(UserRole.UNIVERSITY_TEACHER)
                 .setUniversityName("universityName")
+                .setLecture("physics")
                 .setUniversityAddress("universityAddress")
                 .build();
-        System.out.println(universityTeacher+"\n");
+        log.info("{} \n", universityTeacher);
 
     }
+
 }

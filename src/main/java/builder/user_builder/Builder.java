@@ -1,14 +1,17 @@
-package builder.user.user_builder;
+package builder.user_builder;
 
-import builder.user.User;
-import builder.user.UserRole;
+import builder.User;
+import builder.UserRole;
+import lombok.AccessLevel;
+import lombok.experimental.FieldDefaults;
 
+@FieldDefaults(level = AccessLevel.PROTECTED)
 public abstract class Builder {
 
-    protected String email;
-    protected String username;
-    protected String password;
-    protected UserRole role;
+    String email;
+    String username;
+    String password;
+    UserRole role;
 
     public abstract User build();
 
