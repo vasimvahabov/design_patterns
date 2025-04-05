@@ -1,4 +1,5 @@
-**The Gang of Four Design Patterns**
+## The Gang of Four Design Patterns
+
 - Adapter
 - Builder
 - Decorator
